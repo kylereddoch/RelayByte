@@ -1,0 +1,29 @@
+{
+  "name": "relaybyte-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "eleventy --serve",
+    "dev": "npm run start",
+    "build": "eleventy",
+    "build:pages": "eleventy --pathprefix=/RelayByte/ --output=dist-pages",
+    "preview": "node scripts/serve.mjs",
+    "test": "npm run build && npm run build:pages && node --test --test-concurrency=1 tests/*.test.mjs && npm run test:browser",
+    "check": "npm test",
+    "brand:export": "node scripts/export-brand.mjs",
+    "test:browser": "playwright test"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6",
+    "@axe-core/playwright": "4.13.0",
+    "@fontsource-variable/manrope": "5.3.0",
+    "@fontsource/manrope": "5.3.0",
+    "@playwright/test": "1.63.0",
+    "fontkit": "2.0.4",
+    "sharp": "0.35.4"
+  }
+}
