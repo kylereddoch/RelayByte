@@ -12,9 +12,9 @@ Please leave passwords, license keys, payment card details, and private files ou
 
 ## Trayage
 
-Trayage is preparing for release. Contact me with questions about testing, licenses, purchases, or the planned seven-day trial. The planned direct price is $29.99 for version 1, with optional paid major upgrades later.
+For Trayage installation, trials, licenses, and purchase help, visit the [Trayage support page](https://trayage.app/support/). Its [purchase terms](https://trayage.app/terms/), [refund policy](https://trayage.app/refunds/), and [privacy policy](https://trayage.app/privacy/) describe the direct and App Store editions.
 
-For purchases made through Apple, use [Apple’s refund request service](https://reportaproblem.apple.com/). For a direct purchase, email me with your order reference and purchase email address. Requests for an initial direct purchase can be made within 14 days; the applicable purchase terms and your statutory rights still apply.
+You can also email me with the app name, purchase email, and receipt reference if available. For purchases billed by Apple, use [Apple’s refund request service](https://reportaproblem.apple.com/).
 
 ## StylePort
 
@@ -22,4 +22,4 @@ StylePort’s macOS Safari release is in development. For style issues, include 
 
 ## Purchase information
 
-RelayByte is operated by Kyle Reddoch. Each app’s product page, purchase terms, and privacy policy govern that app. This website currently introduces projects in development and does not take payments.
+RelayByte is Kyle Reddoch’s software brand. Read the [shared purchase terms]({{ '/terms/' | url }}), [refund policy]({{ '/refunds/' | url }}), and [privacy policy]({{ '/privacy/' | url }}) for direct purchasing and support. Each app’s own policies describe its offer, license, refund rules, and data handling.

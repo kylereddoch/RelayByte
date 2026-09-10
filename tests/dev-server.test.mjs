@@ -45,7 +45,7 @@ test('npm start watches templates and copied assets; chosen URLs render correctl
   assert.match(about, /rel="canonical" href="https:\/\/example.test\/RelayByte\/about\/"/);
   assert.match(about, /property="og:image" content="https:\/\/example.test\/RelayByte\/assets\/brand\/social-card.png"/);
   const sitemap = await text('/sitemap.xml');
-  assert.equal((sitemap.match(/<loc>/g) || []).length, 6);
+  assert.equal((sitemap.match(/<loc>/g) || []).length, 8);
   assert.ok(!sitemap.includes('/RelayByte/RelayByte/'));
   assert.match(await text('/404.html'), /noindex, nofollow/);
   const aboutPath = join(dir, 'src/about.md');

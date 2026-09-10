@@ -18,7 +18,7 @@ for (const [output, prefix] of [['dist','/'],['dist-pages','/RelayByte/']]) {
   test(`${output}: pages and local links resolve under ${prefix}`, async () => {
     const root = resolve(output);
     const pages = await htmlFiles(root);
-    assert.equal(pages.length, 7);
+    assert.equal(pages.length, 9);
     await stat(join(root, '.nojekyll'));
     assert.equal((await readFile(join(root, 'CNAME'), 'utf8')).trim(), 'relaybyte.dev');
     for (const page of pages) {
@@ -58,7 +58,7 @@ test('prelaunch product claims and identity stay consistent', async () => {
   assert.match(home, /rel="canonical" href="https:\/\/relaybyte\.dev\/"/);
   assert.match(home, /property="og:image" content="https:\/\/relaybyte\.dev\/assets\/brand\/social-card\.png"/);
   const sitemap = await readFile('dist/sitemap.xml', 'utf8');
-  assert.equal((sitemap.match(/<loc>/g) || []).length, 6);
+  assert.equal((sitemap.match(/<loc>/g) || []).length, 8);
   assert.match(sitemap, /<loc>https:\/\/relaybyte\.dev\/about\/<\/loc>/);
   const robots = await readFile('dist/robots.txt', 'utf8');
   assert.match(robots, /Allow: \//);

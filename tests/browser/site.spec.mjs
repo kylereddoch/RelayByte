@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const routes = ['/', '/about/', '/support/', '/privacy/', '/apps/trayage/', '/apps/styleport/', '/404.html'];
+const routes = ['/', '/about/', '/support/', '/privacy/', '/terms/', '/refunds/', '/apps/trayage/', '/apps/styleport/', '/404.html'];
 
 for (const theme of ['light', 'dark']) {
   test(`${theme}: all pages render, fit the screen, and pass axe WCAG AA`, async ({ page }, testInfo) => {
@@ -18,7 +18,7 @@ for (const theme of ['light', 'dark']) {
       expect(await page.locator('img').evaluateAll(imgs => imgs.every(i => i.complete && i.naturalWidth > 0))).toBe(true);
       const audit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();
       expect(audit.violations.map(v => ({ rule: v.id, nodes: v.nodes.map(n => ({ target: n.target, reason: n.failureSummary })) })), route).toEqual([]);
-      if (route === '/') await page.screenshot({ path: `docs/qa/${testInfo.project.name}-${theme}.png`, fullPage: true });
+      if (['/', '/terms/', '/refunds/', '/privacy/'].includes(route)) await page.screenshot({ path: `docs/qa/${testInfo.project.name}-${theme}${route === '/' ? '' : `-${route.split('/')[1]}`}.png`, fullPage: true });
     }
     expect(errors).toEqual([]);
   });
@@ -87,7 +87,7 @@ test('keyboard skip, navigation, app links, and reduced motion', async ({ page, 
 test('320px reflow, tablet width, no-JavaScript content, and missing pages', async ({ browser, page }) => {
   for (const width of [320, 768, 1024]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const route of ['/', '/support/', '/apps/trayage/']) {
+    for (const route of ['/', '/support/', '/terms/', '/refunds/', '/privacy/', '/apps/trayage/']) {
       await page.goto(route);
       await page.evaluate(() => document.fonts.ready);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
@@ -121,6 +121,12 @@ test('GitHub Pages subpath: navigation, assets, and deep 404 recovery', async ({
   await expect(page.getByRole('link', { name: 'Explore StylePort' })).toHaveAttribute('href', 'https://styleport.app');
   await page.goto('http://127.0.0.1:4186/RelayByte/apps/trayage/');
   await expect(page.getByRole('link', { name: 'Visit the Trayage website' })).toHaveAttribute('href', 'https://trayage.app');
+  for (const [label, path] of [['Purchase terms', 'terms'], ['Refunds', 'refunds'], ['Privacy', 'privacy']]) {
+    await page.locator('footer').getByRole('link', { name: label, exact: true }).click();
+    await expect(page).toHaveURL(`http://127.0.0.1:4186/RelayByte/${path}/`);
+    await expect(page.locator('h1')).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  }
   expect(failures).toEqual([]);
   expect((await page.goto('http://127.0.0.1:4186/RelayByte/missing/deep/link')).status()).toBe(404);
   await page.getByRole('link', { name: 'Head back to the apps' }).click();

@@ -38,7 +38,7 @@
   <main id="main" tabindex="-1">{{ content | safe }}</main>
   <footer class="site-footer shell">
     <div class="footer-main"><a class="wordmark" href="{{ '/' | url }}" aria-label="RelayByte home"><img class="brand-symbol" src="{{ '/assets/brand/relaybyte-symbol-orange.svg' | url }}" alt="" width="48" height="48"><span>RelayByte</span></a><p>A small software studio.<br>A real person behind it.</p><a class="text-link" href="mailto:{{ site.email }}">Say hello <span aria-hidden="true">↗</span></a></div>
-    <div class="footer-meta"><p>© 2026 Kyle Reddoch <span class="footer-separator">/</span> Made in Texas.</p><div class="footer-controls"><a href="{{ '/privacy/' | url }}">Website privacy</a><label class="theme-control" hidden>Appearance <select id="theme-select" aria-label="Color theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></div></div>
+    <div class="footer-meta"><p>© 2026 Kyle Reddoch <span class="footer-separator">/</span> Made in Texas.</p><div class="footer-controls"><a href="{{ '/privacy/' | url }}"{% if page.url == '/privacy/' %} aria-current="page"{% endif %}>Privacy</a><a href="{{ '/terms/' | url }}"{% if page.url == '/terms/' %} aria-current="page"{% endif %}>Purchase terms</a><a href="{{ '/refunds/' | url }}"{% if page.url == '/refunds/' %} aria-current="page"{% endif %}>Refunds</a><label class="theme-control" hidden>Appearance <select id="theme-select" aria-label="Color theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></div></div>
   </footer>
 </body>
 </html>
