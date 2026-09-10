@@ -44,7 +44,7 @@ for (const [output, prefix] of [['dist','/'],['dist-pages','/RelayByte/']]) {
   });
 }
 
-test('prelaunch product claims and identity stay consistent', async () => {
+test('product claims and identity stay consistent', async () => {
   const trayage = await readFile('dist/apps/trayage/index.html', 'utf8');
   assert.match(trayage, /\$29\.99/);
   assert.match(trayage, /seven-day trial/);
@@ -52,7 +52,7 @@ test('prelaunch product claims and identity stay consistent', async () => {
   assert.match(trayage, /Kyle Reddoch/);
   assert.doesNotMatch(trayage, /buy\.stripe\.com|apps\.apple\.com/);
   const home = await readFile('dist/index.html','utf8');
-  assert.match(home, /Preparing for release/);
+  assert.match(home, /Direct download available/);
   assert.match(home, /CONCEPT ILLUSTRATION/);
   assert.doesNotMatch(home, /noindex, nofollow/);
   assert.match(home, /rel="canonical" href="https:\/\/relaybyte\.dev\/"/);

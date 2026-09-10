@@ -80,7 +80,7 @@ test('keyboard skip, navigation, app links, and reduced motion', async ({ page, 
   await expect(page).toHaveURL(/\/#main$/);
   await page.getByRole('link', { name: 'Meet the apps' }).click();
   await expect(page).toHaveURL(/#apps$/);
-  await expect(page.getByRole('link', { name: 'Take a closer look' })).toHaveAttribute('href', 'https://trayage.app');
+  await expect(page.getByRole('link', { name: 'Download Trayage' })).toHaveAttribute('href', 'https://trayage.app/download/');
   await expect(page.getByRole('link', { name: 'Explore StylePort' })).toHaveAttribute('href', 'https://styleport.app');
 });
 
@@ -101,7 +101,7 @@ test('320px reflow, tablet width, no-JavaScript content, and missing pages', asy
   await noJS.goto('http://127.0.0.1:4185/');
   await expect(noJS.locator('h1')).toBeVisible();
   await expect(noJS.getByRole('combobox')).toBeHidden();
-  await expect(noJS.getByRole('link', { name: 'Take a closer look' })).toHaveAttribute('href', 'https://trayage.app');
+  await expect(noJS.getByRole('link', { name: 'Download Trayage' })).toHaveAttribute('href', 'https://trayage.app/download/');
   await expect(noJS.getByRole('button', { name: 'RelayByte logo card' })).toBeDisabled();
   await expect(noJS.locator('.art-cta')).toBeHidden();
   await noJS.getByRole('link', { name: 'The maker', exact: true }).click();
@@ -117,7 +117,7 @@ test('GitHub Pages subpath: navigation, assets, and deep 404 recovery', async ({
   await page.getByRole('link', { name: 'The maker', exact: true }).click();
   await expect(page).toHaveURL('http://127.0.0.1:4186/RelayByte/about/');
   await page.getByRole('link', { name: 'RelayByte home' }).first().click();
-  await expect(page.getByRole('link', { name: 'Take a closer look' })).toHaveAttribute('href', 'https://trayage.app');
+  await expect(page.getByRole('link', { name: 'Download Trayage' })).toHaveAttribute('href', 'https://trayage.app/download/');
   await expect(page.getByRole('link', { name: 'Explore StylePort' })).toHaveAttribute('href', 'https://styleport.app');
   await page.goto('http://127.0.0.1:4186/RelayByte/apps/trayage/');
   await expect(page.getByRole('link', { name: 'Visit the Trayage website' })).toHaveAttribute('href', 'https://trayage.app');

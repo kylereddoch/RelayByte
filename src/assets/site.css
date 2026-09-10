@@ -401,6 +401,15 @@ select:focus-visible {
   color: var(--accent);
   border-color: var(--accent);
 }
+.trayage-feature .app-tags {
+  margin-bottom: 12px;
+}
+.app-release-note {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0 0 24px;
+}
 .text-link {
   display: inline-flex;
   gap: 30px;

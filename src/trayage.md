@@ -2,7 +2,7 @@
 layout: document.njk
 title: Trayage
 heading: A little order for your Downloads.
-eyebrow: Trayage / macOS / Preparing for release
+eyebrow: Trayage / macOS / Direct download available
 intro: See what’s accumulated, review what matters, and decide what stays.
 permalink: /apps/trayage/
 ---
@@ -18,12 +18,14 @@ Trayage moves selected files to the Trash only after you confirm. It does not au
 
 ## One purchase. Your version to keep.
 
-The planned direct price is **$29.99** after a **seven-day trial**. A direct license covers up to three Macs. Updates within version 1 are included. You can keep using the version you purchased on compatible systems.
+Start with a free **seven-day trial**. The direct license price is **$29.99**, with new license purchases still being finalized. Existing licenses can be activated now. A direct license covers up to three Macs. Updates within version 1 are included. You can keep using the version you purchased on compatible systems.
 
 Future major upgrades will be optional paid purchases, with a discount planned for existing customers. An upgrade price and release date have not been set. App Store purchase and trial details will be shown in Apple’s listing when it is available.
 
-## In the making
+## Available directly for Mac
 
-Trayage is preparing for release. There is no public download on this page yet. For questions or testing inquiries, [get in touch]({{ '/support/' | url }}).
+Trayage is available to download directly for macOS 14 or later. The Mac App Store version is coming later.
+
+[Download Trayage and start your trial]({{ site.trayageUrl }}/download/). For questions, [get in touch]({{ '/support/' | url }}).
 
 {% if site.trayageUrl %}[Visit the Trayage website]({{ site.trayageUrl }}){% endif %}
