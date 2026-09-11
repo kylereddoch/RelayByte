@@ -3,7 +3,7 @@ layout: document.njk
 title: Privacy
 heading: Privacy.
 description: How Kyle Reddoch handles RelayByte website visits, shared direct-purchase records, licensing support, and email, alongside each app’s own privacy policy.
-eyebrow: Updated September 10, 2026
+eyebrow: Updated September 11, 2026
 intro: This page covers the RelayByte website, shared direct-purchase records, and support. Each app also has its own privacy policy.
 permalink: /privacy/
 ---
@@ -17,7 +17,9 @@ This page complements each app’s disclosures. It does not replace them or impl
 
 GitHub Pages hosts this website. GitHub processes connection and request information, including your IP address, to serve and protect the site. See [GitHub’s privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 
-I have not added analytics, advertising trackers, embedded social feeds, or a visitor account system. Fonts, images, scripts, and styles are served as part of this website.
+I use Tinylytics to count page views and selected link clicks so I can understand which pages, app downloads, and external resources visitors use. Tinylytics receives the page URL and path, referrer when the browser provides one, and browser user-agent information. A visitor’s IP address is used briefly to create rotating, one-way daily hashes and identify the country, then discarded rather than stored with the visit. Link-click events record a descriptive event name and, for outbound links, the destination URL.
+
+Tinylytics does not use tracking cookies or persistent cross-site identifiers. Its analytics service is hosted in Germany, and its script is delivered through Cloudflare. See [Tinylytics’ visitor-data explanation](https://tinylytics.app/docs/trust/privacy) and [privacy policy](https://tinylytics.app/docs/privacy). I have not added advertising trackers, embedded social feeds, or a visitor account system.
 
 If you choose a light or dark appearance, the website saves that preference in your browser’s local storage. It stays on your device and is not sent to me. Choosing “System” removes the saved preference. The site does not set cookies through its own code.
 

@@ -3,6 +3,22 @@ import { resolve } from 'node:path';
 
 export default function (eleventyConfig) {
   let firstBuild = true;
+  eleventyConfig.amendLibrary('md', markdown => {
+    const renderLinkOpen = markdown.renderer.rules.link_open
+      || ((tokens, index, options, env, renderer) => renderer.renderToken(tokens, index, options));
+    markdown.renderer.rules.link_open = (tokens, index, options, env, renderer) => {
+      const token = tokens[index];
+      const href = token.attrGet('href');
+      if (href?.startsWith('mailto:')) {
+        token.attrSet('data-tinylytics-event', 'contact.email');
+      } else if (/^https?:\/\//i.test(href)) {
+        const destination = new URL(href);
+        token.attrSet('data-tinylytics-event', destination.pathname.startsWith('/download/') ? 'app.download' : 'link.outbound');
+        token.attrSet('data-tinylytics-event-value', href);
+      }
+      return renderLinkOpen(tokens, index, options, env, renderer);
+    };
+  });
   eleventyConfig.addFilter('absoluteUrl', (path, base) => {
     // publicUrl includes the chosen deployment path; page.url does not.
     return new URL(path.replace(/^\/+/, ''), base).href;

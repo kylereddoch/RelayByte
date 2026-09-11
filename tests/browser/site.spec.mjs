@@ -3,6 +3,14 @@ import AxeBuilder from '@axe-core/playwright';
 
 const routes = ['/', '/about/', '/support/', '/privacy/', '/terms/', '/refunds/', '/apps/trayage/', '/apps/styleport/', '/404.html'];
 
+test.beforeEach(async ({ page }) => {
+  // Tinylytics only serves the embed to its configured production hostname.
+  await page.route('https://tinylytics.app/embed/**', route => route.fulfill({
+    contentType: 'application/javascript',
+    body: ''
+  }));
+});
+
 for (const theme of ['light', 'dark']) {
   test(`${theme}: all pages render, fit the screen, and pass axe WCAG AA`, async ({ page }, testInfo) => {
     await page.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' });

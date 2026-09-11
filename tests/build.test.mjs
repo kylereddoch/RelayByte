@@ -25,7 +25,16 @@ for (const [output, prefix] of [['dist','/'],['dist-pages','/RelayByte/']]) {
       const html = await readFile(page, 'utf8');
       assert.match(html, /<html lang="en">/);
       assert.equal((html.match(/<h1[ >]/g) || []).length, 1, page);
+      assert.equal((html.match(/tinylytics\.app\/embed\/tMjBVztEBpTRNL7hmsgY\.js\?events&beacon/g) || []).length, 1, page);
       assert.ok(!html.includes('{{'), `Unrendered template in ${page}`);
+      for (const [tag, href] of html.matchAll(/(<a\b[^>]*\bhref="([^"]+)"[^>]*>)/g)) {
+        if (href.startsWith('mailto:')) {
+          assert.match(tag, /data-tinylytics-event="contact\.email"/, `${page}: missing email event for ${href}`);
+        } else if (/^https?:\/\//.test(href)) {
+          assert.match(tag, /data-tinylytics-event="(?:app\.download|link\.outbound)"/, `${page}: missing outbound event for ${href}`);
+          assert.match(tag, /data-tinylytics-event-value=/, `${page}: missing outbound value for ${href}`);
+        }
+      }
       for (const [, attr] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
         if (!attr.startsWith('/')) continue;
         assert.ok(attr.startsWith(prefix), `${page}: ${attr} escapes project path`);
@@ -64,6 +73,9 @@ test('product claims and identity stay consistent', async () => {
   assert.match(robots, /Allow: \//);
   assert.match(robots, /Sitemap: https:\/\/relaybyte\.dev\/sitemap.xml/);
   assert.match(await readFile('dist/404.html', 'utf8'), /noindex, nofollow/);
+  const privacy = await readFile('dist/privacy/index.html', 'utf8');
+  assert.match(privacy, /I use Tinylytics to count page views and selected link clicks/);
+  assert.doesNotMatch(privacy, /I have not added analytics/);
 });
 
 test('brand exports are transparent and satisfy Stripe image limits', async () => {
