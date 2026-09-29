@@ -9,7 +9,7 @@ permalink: /terms/
 ---
 ## Who you are buying from
 
-RelayByte is the brand Kyle Reddoch uses to publish software. Kyle Reddoch, operating in Texas, United States, is the legal operator and seller for direct purchases. RelayByte is not a separate legal entity. For shared purchase or support questions, email [{{ site.email }}](mailto:{{ site.email }}).
+RelayByte is the brand Kyle Reddoch uses to publish software. Kyle Reddoch, operating in Texas, United States, is the legal operator and seller for direct purchases. RelayByte is not a separate legal entity. For shared purchase or support questions, email [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}).
 
 ## The terms for your app
 
@@ -31,7 +31,7 @@ Trayage’s direct offer is a one-time purchase, with no subscription or automat
 
 Stripe hosts direct checkout and the billing portal. Product-specific terms explain how paid access is delivered and activated. For Trayage’s direct edition, Keylight delivers the license by email after successful payment and manages activation.
 
-If a receipt, license, or activation is missing, contact [{{ site.email }}](mailto:{{ site.email }}) with the app name, purchase email, and receipt reference if available. Do not send a full payment card number or complete license key.
+If a receipt, license, or activation is missing, contact [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}) with the app name, purchase email, and receipt reference if available. Do not send a full payment card number or complete license key.
 
 ## Refunds and billing questions
 

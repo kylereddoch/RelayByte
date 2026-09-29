@@ -78,6 +78,15 @@ test('product claims and identity stay consistent', async () => {
   assert.doesNotMatch(privacy, /I have not added analytics/);
 });
 
+test('support contacts and hello link use their intended mailboxes', async () => {
+  for (const page of ['about', 'support', 'terms', 'refunds', 'privacy']) {
+    const html = await readFile(`dist/${page}/index.html`, 'utf8');
+    assert.match(html, /mailto:support@relaybyte\.dev/);
+    assert.match(html, /mailto:kyle@relaybyte\.dev"[^>]*>Say hello/);
+    assert.equal((html.match(/mailto:kyle@relaybyte\.dev/g) || []).length, 1);
+  }
+});
+
 test('brand exports are transparent and satisfy Stripe image limits', async () => {
   for (const name of ['stripe-icon-512', 'relaybyte-lockup-ink', 'relaybyte-lockup-paper']) {
     const path = `src/assets/brand/${name}.png`;

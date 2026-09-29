@@ -6,7 +6,7 @@ eyebrow: Get in touch
 intro: A question about an app goes straight to the person building it.
 permalink: /support/
 ---
-Email **[{{ site.email }}](mailto:{{ site.email }})**. Include the app’s name, your macOS version, the app version, and what happened. A few steps to reproduce a problem are especially helpful.
+Email **[{{ site.supportEmail }}](mailto:{{ site.supportEmail }})**. Include the app’s name, your macOS version, the app version, and what happened. A few steps to reproduce a problem are especially helpful.
 
 Please leave passwords, license keys, payment card details, and private files out of your message. If I need more information, I’ll explain what would help.
 

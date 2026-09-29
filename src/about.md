@@ -18,7 +18,7 @@ These are independent projects. I’m building them carefully, listening to feed
 
 ## A real person to reach
 
-Have a question, a bug report, or an idea? Write to [{{ site.email }}](mailto:{{ site.email }}).
+Have a question, a bug report, or an idea? Write to [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}).
 
 You can also find my writing at [CybersecKyle](https://www.kylereddoch.me/).
 

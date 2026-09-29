@@ -21,7 +21,7 @@ Read the [full Trayage refund policy](https://trayage.app/refunds/) for the requ
 
 ## Request help with a direct purchase
 
-Use the contact listed in your product’s refund policy, or email [{{ site.email }}](mailto:{{ site.email }}) for shared RelayByte purchase support. Include the app name, purchase email, payment date, and receipt reference if available. If you cannot find the receipt or access the purchase email, explain that so I can help verify the purchase.
+Use the contact listed in your product’s refund policy, or email [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}) for shared RelayByte purchase support. Include the app name, purchase email, payment date, and receipt reference if available. If you cannot find the receipt or access the purchase email, explain that so I can help verify the purchase.
 
 Please do not send your full card number or complete license key. Report a suspected duplicate or incorrect charge even if the product’s voluntary refund window has passed. Billing errors and rights under applicable law are considered separately from that window.
 

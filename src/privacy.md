@@ -9,7 +9,7 @@ permalink: /privacy/
 ---
 ## Who is responsible
 
-Kyle Reddoch operates RelayByte from Texas, United States. RelayByte is his software brand, not a separate legal entity. In this policy, “I” means Kyle Reddoch. Contact [{{ site.email }}](mailto:{{ site.email }}) with privacy questions or requests about this website or shared purchasing and support services.
+Kyle Reddoch operates RelayByte from Texas, United States. RelayByte is his software brand, not a separate legal entity. In this policy, “I” means Kyle Reddoch. Contact [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}) with privacy questions or requests about this website or shared purchasing and support services.
 
 This page complements each app’s disclosures. It does not replace them or imply that every app collects the same information. For Trayage’s file access, direct licensing and trial reporting, and App Store edition, read the [Trayage privacy policy](https://trayage.app/privacy/).
 
@@ -41,7 +41,7 @@ Apple processes App Store purchases under its own policies. Trayage’s App Stor
 
 ## Contacting me
 
-If you email [{{ site.email }}](mailto:{{ site.email }}), I receive your email address, message, and anything you choose to attach. I use that information to answer your question, investigate a problem, locate a purchase, or handle your request. The support mailbox is hosted by Proton Mail; see [Proton Mail’s privacy policy](https://proton.me/mail/privacy-policy).
+If you email [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}), I receive your email address, message, and anything you choose to attach. I use that information to answer your question, investigate a problem, locate a purchase, or handle your request. The support mailbox is hosted by Proton Mail; see [Proton Mail’s privacy policy](https://proton.me/mail/privacy-policy).
 
 Ordinary email exchanged with other providers is not automatically end-to-end encrypted. Please leave full payment card numbers, complete license keys, and private files out of support messages. Redact sensitive information from screenshots.
 
@@ -55,7 +55,7 @@ GitHub, Stripe, Proton, and the product-specific providers described above proce
 
 I keep support correspondence while needed for the request and relevant follow-up. Purchase records are retained as needed for purchased access, accounting, tax, fraud prevention, disputes, and legal obligations. Product licensing records follow the purposes described in that app’s policy. There is no single retention period for every type of record.
 
-Email [{{ site.email }}](mailto:{{ site.email }}) to request access, correction, or deletion of personal information. Depending on applicable law, you may also have rights to portability, to object to or restrict a use, to withdraw consent for a consent-based use, to appeal a refused request, or to complain to a regulator. I may need a proportionate check that the information or purchase belongs to you.
+Email [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}) to request access, correction, or deletion of personal information. Depending on applicable law, you may also have rights to portability, to object to or restrict a use, to withdraw consent for a consent-based use, to appeal a refused request, or to complain to a regulator. I may need a proportionate check that the information or purchase belongs to you.
 
 I will work with the relevant provider on your request and explain records that must be retained. Provider backup and legal-retention requirements may continue after deletion from active records. Uninstalling an app or deactivating a license does not by itself erase billing or support records. A privacy request is separate from a [refund request]({{ '/refunds/' | url }}).
 
