@@ -1,0 +1,13 @@
+---
+layout: base.njk
+title: Blog
+description: Notes from Kyle Reddoch on building RelayByte, making independent apps, and learning along the way.
+permalink: /blog/
+---
+<section class="journal-page shell" aria-labelledby="journal-title">
+  <p class="eyebrow">The RelayByte blog / Kyle Reddoch</p>
+  <h1 id="journal-title">Building the apps.<br>Sharing the journey.</h1>
+  <p class="page-lead">The ideas, decisions, experiments, and lessons behind a solo software studio. Written by the person doing the work.</p>
+  {% if collections.blogCategories.length %}<ul class="category-links" aria-label="Blog categories">{% for category in collections.blogCategories %}<li><a href="{{ ('/blog/category/' + category.slug + '/') | url }}">{{ category.name }} <span aria-hidden="true">→</span></a></li>{% endfor %}</ul>{% endif %}
+  <div class="journal-page-grid"><div class="journal-posts">{% include 'post-list.njk' %}</div><aside class="journal-sidebar"><span class="eyebrow">What goes here</span><h2>From my desk.</h2><p>App development. Design decisions. Launches and the business of building independently.</p><p>RelayByte is my app brand. I’m Kyle, the person behind it.</p><a class="text-link" href="{{ '/blog/feed.xml' | url }}">Follow via RSS <span aria-hidden="true">↗</span></a><div class="sidebar-reading"><span class="eyebrow">On my personal blog</span><a href="https://kylereddoch.me/blog/drift-share-to-mastodon/" data-tinylytics-event="link.outbound" data-tinylytics-event-value="https://kylereddoch.me/blog/drift-share-to-mastodon/">Why I built Drift <span aria-hidden="true">↗</span></a></div></aside></div>
+</section>

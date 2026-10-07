@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const routes = ['/', '/about/', '/support/', '/privacy/', '/terms/', '/refunds/', '/apps/trayage/', '/apps/styleport/', '/404.html'];
+const routes = ['/', '/apps/', '/blog/', '/blog/building-relaybyte/', '/blog/category/journey/', '/about/', '/support/', '/privacy/', '/terms/', '/refunds/', '/apps/trayage/', '/apps/styleport/', '/apps/drift/', '/404.html'];
 
 test.beforeEach(async ({ page }) => {
   // Tinylytics only serves the embed to its configured production hostname.
@@ -21,7 +21,7 @@ for (const theme of ['light', 'dark']) {
       expect((await page.goto(route)).status()).toBe(200);
       await page.evaluate(() => document.fonts.ready);
       await expect(page.locator('h1')).toBeVisible();
-      await expect(page.locator('nav a')).toHaveCount(3);
+      await expect(page.locator('nav a')).toHaveCount(4);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       expect(await page.locator('img').evaluateAll(imgs => imgs.every(i => i.complete && i.naturalWidth > 0))).toBe(true);
       const audit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();
@@ -80,6 +80,8 @@ test('keyboard skip, navigation, app links, and reduced motion', async ({ page, 
   await page.keyboard.press(tabKey);
   await expect(page.getByRole('link', { name: 'Meet the apps' })).toBeFocused();
   await page.keyboard.press(tabKey);
+  await expect(page.getByRole('link', { name: 'Read the blog', exact: true })).toBeFocused();
+  await page.keyboard.press(tabKey);
   const card = page.getByRole('button', { name: 'Light it up' });
   await expect(card).toBeFocused();
   await page.keyboard.press('Enter');
@@ -95,7 +97,7 @@ test('keyboard skip, navigation, app links, and reduced motion', async ({ page, 
 test('320px reflow, tablet width, no-JavaScript content, and missing pages', async ({ browser, page }) => {
   for (const width of [320, 768, 1024]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const route of ['/', '/support/', '/terms/', '/refunds/', '/privacy/', '/apps/trayage/']) {
+    for (const route of ['/', '/apps/', '/blog/', '/apps/drift/', '/support/', '/terms/', '/refunds/', '/privacy/', '/apps/trayage/']) {
       await page.goto(route);
       await page.evaluate(() => document.fonts.ready);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
@@ -129,7 +131,7 @@ test('GitHub Pages subpath: navigation, assets, and deep 404 recovery', async ({
   await expect(page.getByRole('link', { name: 'Explore StylePort' })).toHaveAttribute('href', 'https://styleport.app');
   await page.goto('http://127.0.0.1:4186/RelayByte/apps/trayage/');
   await expect(page.getByRole('link', { name: 'Visit the Trayage website' })).toHaveAttribute('href', 'https://trayage.app');
-  for (const [label, path] of [['Purchase terms', 'terms'], ['Refunds', 'refunds'], ['Privacy', 'privacy']]) {
+  for (const [label, path] of [['Terms', 'terms'], ['Refunds', 'refunds'], ['Privacy', 'privacy']]) {
     await page.locator('footer').getByRole('link', { name: label, exact: true }).click();
     await expect(page).toHaveURL(`http://127.0.0.1:4186/RelayByte/${path}/`);
     await expect(page.locator('h1')).toBeVisible();

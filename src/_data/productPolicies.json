@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Trayage",
+    "summaries": {
+      "refunds": "For a paid Trayage license, use the policy for your purchase route. The app’s refund page explains direct purchases and Apple-billed purchases.",
+      "privacy": "Covers the Trayage app and website, file access, direct licensing, purchases, and its App Store edition.",
+      "terms": "Covers Trayage’s license, direct purchase, trial, updates, and App Store purchase arrangements."
+    },
+    "links": {
+      "refunds": [{ "label": "Trayage refund policy", "url": "https://trayage.app/refunds/" }],
+      "privacy": [{ "label": "Trayage privacy policy", "url": "https://trayage.app/privacy/" }],
+      "terms": [{ "label": "Trayage purchase terms", "url": "https://trayage.app/terms/" }]
+    }
+  },
+  {
+    "name": "StylePort",
+    "summaries": {
+      "refunds": "StylePort is free, open source, and still in development. Optional support payments are separate from an app purchase. Check the information shown at checkout and contact support about a payment.",
+      "privacy": "Covers StylePort’s local styles and settings, Safari website access, its website, and optional support payments.",
+      "terms": "StylePort is free and open source under GPL-3.0. Its website explains its development status and any optional support payment; support does not buy a license or unlock features."
+    },
+    "links": {
+      "refunds": [{ "label": "StylePort support", "url": "https://styleport.app/support/" }],
+      "privacy": [{ "label": "StylePort privacy policy", "url": "https://styleport.app/privacy/" }],
+      "terms": [{ "label": "StylePort website and license information", "url": "https://styleport.app/" }]
+    }
+  },
+  {
+    "name": "Drift",
+    "summaries": {
+      "refunds": "Drift is free. Optional support links use the payment services identified on Drift’s website. For a support-payment question, use that service’s receipt and contact details.",
+      "privacy": "Covers the Chrome extension’s local preferences, temporary drafts, Mastodon handoff, and the Drift website.",
+      "terms": "Drift is free, open source, and MIT-licensed. Optional support payments do not unlock extension features."
+    },
+    "links": {
+      "refunds": [{ "label": "Drift website and support links", "url": "https://drift.kylereddoch.me/" }],
+      "privacy": [{ "label": "Drift privacy policy", "url": "https://drift.kylereddoch.me/privacy.html" }],
+      "terms": [{ "label": "Drift MIT license", "url": "https://github.com/kylereddoch/drift/blob/main/LICENSE" }]
+    }
+  }
+]

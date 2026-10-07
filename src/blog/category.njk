@@ -1,0 +1,20 @@
+---
+layout: base.njk
+pagination:
+  data: collections.blogCategories
+  size: 1
+  alias: categoryInfo
+  addAllPagesToCollections: true
+eleventyComputed:
+  title: "{{ categoryInfo.name }} — Blog"
+  description: "Posts by Kyle Reddoch in the {{ categoryInfo.name }} category on the RelayByte blog."
+  permalink: "/blog/category/{{ categoryInfo.slug }}/"
+---
+<section class="journal-page shell" aria-labelledby="category-title">
+  <a class="back-link" href="{{ '/blog/' | url }}">← All blog posts</a>
+  <p class="eyebrow">The RelayByte blog / Category</p>
+  <h1 id="category-title">{{ categoryInfo.name }}</h1>
+  <p class="page-lead">Posts filed under {{ categoryInfo.name }}. Follow the ideas, decisions, and progress behind RelayByte.</p>
+  {% set postList = categoryInfo.posts %}
+  <div class="journal-posts">{% include 'post-list.njk' %}</div>
+</section>

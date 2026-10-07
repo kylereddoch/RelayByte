@@ -1,0 +1,9 @@
+<div class="policy-directory">
+  {% for product in productPolicies %}
+  <section class="policy-product" aria-labelledby="policy-{{ product.name | lower }}">
+    <h3 id="policy-{{ product.name | lower }}">{{ product.name }}</h3>
+    <p>{{ product.summaries[policyKind] }}</p>
+    {% for link in product.links[policyKind] %}<a href="{{ link.url }}" data-tinylytics-event="link.outbound" data-tinylytics-event-value="{{ link.url }}">{{ link.label }} <span aria-hidden="true">↗</span></a>{% endfor %}
+  </section>
+  {% endfor %}
+</div>

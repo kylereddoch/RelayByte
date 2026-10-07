@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Trayage",
+    "slug": "trayage",
+    "icon": "/assets/apps/trayage.png",
+    "line": "A little order for your Downloads.",
+    "description": "See the installers, possible duplicates, and older files that have accumulated on your Mac. Review what matters and decide what stays.",
+    "platform": "macOS",
+    "status": "Direct download available",
+    "note": "Mac App Store version coming soon.",
+    "action": "Download Trayage",
+    "url": "https://trayage.app/download/",
+    "event": "app.download"
+  },
+  {
+    "name": "StylePort",
+    "slug": "styleport",
+    "icon": "/assets/apps/styleport.png",
+    "line": "Your browser, your style.",
+    "description": "A Safari-first, privacy-first CSS and UserCSS manager for Mac. Install, edit, and manage custom styles, with your settings kept locally.",
+    "platform": "Safari on macOS",
+    "status": "In development",
+    "note": "Free and open source. Public downloads are not available yet.",
+    "action": "Explore StylePort",
+    "url": "https://styleport.app",
+    "event": "link.outbound"
+  },
+  {
+    "name": "Drift",
+    "slug": "drift",
+    "icon": "/assets/apps/drift.svg",
+    "line": "A good find. Worth sharing.",
+    "description": "Turn a highlighted passage, page title, and link into an editable Mastodon draft. Add your thoughts, choose your server, and review the post there.",
+    "platform": "Chrome extension",
+    "status": "Available",
+    "note": "Free and open source. No Mastodon password or API token needed.",
+    "action": "Get Drift for Chrome",
+    "url": "https://chromewebstore.google.com/detail/gfngoampnddkablfoplbllkdcfkifnij",
+    "event": "app.download"
+  }
+]

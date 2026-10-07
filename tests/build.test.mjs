@@ -18,7 +18,7 @@ for (const [output, prefix] of [['dist','/'],['dist-pages','/RelayByte/']]) {
   test(`${output}: pages and local links resolve under ${prefix}`, async () => {
     const root = resolve(output);
     const pages = await htmlFiles(root);
-    assert.equal(pages.length, 9);
+    assert.equal(pages.length, 14);
     await stat(join(root, '.nojekyll'));
     assert.equal((await readFile(join(root, 'CNAME'), 'utf8')).trim(), 'relaybyte.dev');
     for (const page of pages) {
@@ -62,12 +62,13 @@ test('product claims and identity stay consistent', async () => {
   assert.doesNotMatch(trayage, /buy\.stripe\.com|apps\.apple\.com/);
   const home = await readFile('dist/index.html','utf8');
   assert.match(home, /Direct download available/);
-  assert.match(home, /CONCEPT ILLUSTRATION/);
+  assert.match(home, /Get Drift for Chrome/);
+  assert.match(home, /The work behind/);
   assert.doesNotMatch(home, /noindex, nofollow/);
   assert.match(home, /rel="canonical" href="https:\/\/relaybyte\.dev\/"/);
   assert.match(home, /property="og:image" content="https:\/\/relaybyte\.dev\/assets\/brand\/social-card\.png"/);
   const sitemap = await readFile('dist/sitemap.xml', 'utf8');
-  assert.equal((sitemap.match(/<loc>/g) || []).length, 8);
+  assert.equal((sitemap.match(/<loc>/g) || []).length, 13);
   assert.match(sitemap, /<loc>https:\/\/relaybyte\.dev\/about\/<\/loc>/);
   const robots = await readFile('dist/robots.txt', 'utf8');
   assert.match(robots, /Allow: \//);
@@ -78,6 +79,19 @@ test('product claims and identity stay consistent', async () => {
   assert.doesNotMatch(privacy, /I have not added analytics/);
 });
 
+test('approved founder post and category appear in production pages, RSS, and sitemap', async () => {
+  for (const output of ['dist', 'dist-pages']) {
+    const pages = await htmlFiles(output);
+    assert.ok(pages.some(path => path.includes('building-relaybyte')));
+    for (const path of ['index.html', 'blog/index.html', 'blog/feed.xml', 'sitemap.xml']) {
+      assert.match(await readFile(join(output, path), 'utf8'), /\/blog\/building-relaybyte\//);
+    }
+    const article = await readFile(join(output, 'blog/building-relaybyte/index.html'), 'utf8');
+    assert.match(article, /Why I’m building RelayByte/);
+    assert.doesNotMatch(article, /Draft preview|noindex, nofollow/);
+  }
+});
+
 test('support contacts and hello link use their intended mailboxes', async () => {
   for (const page of ['about', 'support', 'terms', 'refunds', 'privacy']) {
     const html = await readFile(`dist/${page}/index.html`, 'utf8');
@@ -85,6 +99,21 @@ test('support contacts and hello link use their intended mailboxes', async () =>
     assert.match(html, /mailto:kyle@relaybyte\.dev"[^>]*>Say hello/);
     assert.equal((html.match(/mailto:kyle@relaybyte\.dev/g) || []).length, 1);
   }
+});
+
+test('shared policy pages link to app policies without inventing free-app purchase terms', async () => {
+  const refunds = await readFile('dist/refunds/index.html', 'utf8');
+  assert.match(refunds, /https:\/\/trayage\.app\/refunds\//);
+  assert.match(refunds, /does not create a separate studio-wide refund window/);
+  assert.doesNotMatch(refunds, /14 days|14-day|styleport\.app\/(?:refunds|terms)\//);
+  const privacy = await readFile('dist/privacy/index.html', 'utf8');
+  for (const href of ['https://trayage.app/privacy/', 'https://styleport.app/privacy/', 'https://drift.kylereddoch.me/privacy.html']) assert.ok(privacy.includes(href));
+  assert.match(privacy, /including its blog and RSS feed/);
+  const terms = await readFile('dist/terms/index.html', 'utf8');
+  assert.match(terms, /legal operator and seller/);
+  assert.match(terms, /Optional support payments/);
+  assert.match(terms, /github\.com\/kylereddoch\/drift\/blob\/main\/LICENSE/);
+  assert.doesNotMatch(terms, /styleport\.app\/(?:refunds|terms)\//);
 });
 
 test('brand exports are transparent and satisfy Stripe image limits', async () => {

@@ -2,16 +2,23 @@
 layout: document.njk
 title: Privacy
 heading: Privacy.
-description: How Kyle Reddoch handles RelayByte website visits, shared direct-purchase records, licensing support, and email, alongside each app’s own privacy policy.
-eyebrow: Updated September 11, 2026
-intro: This page covers the RelayByte website, shared direct-purchase records, and support. Each app also has its own privacy policy.
+description: How Kyle Reddoch handles RelayByte website and blog visits, shared payment records, and email, with links to each app’s own privacy policy.
+eyebrow: Updated October 7, 2026
+intro: Privacy for this website, shared payments, and support. App-specific data handling is explained on each app’s website.
 permalink: /privacy/
 ---
 ## Who is responsible
 
 Kyle Reddoch operates RelayByte from Texas, United States. RelayByte is his software brand, not a separate legal entity. In this policy, “I” means Kyle Reddoch. Contact [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}) with privacy questions or requests about this website or shared purchasing and support services.
 
-This page complements each app’s disclosures. It does not replace them or imply that every app collects the same information. For Trayage’s file access, direct licensing and trial reporting, and App Store edition, read the [Trayage privacy policy](https://trayage.app/privacy/).
+This policy covers relaybyte.dev, including its blog and RSS feed, and the shared payment and email-support records I manage. It does not describe the permissions, storage, licensing reports, or other behavior of every app.
+
+## Privacy for each app
+
+{% set policyKind = 'privacy' %}
+{% include 'policy-directory.njk' %}
+
+These app policies explain their own app and website behavior. Visiting RelayByte does not give this website access to files reviewed by Trayage, styles managed by StylePort, or drafts prepared in Drift.
 
 ## Visiting the website
 
@@ -25,21 +32,23 @@ If you choose a light or dark appearance, the website saves that preference in y
 
 ## Direct purchases through Stripe
 
-Stripe hosts direct checkout and the billing portal used for RelayByte products. It processes the email address, billing and payment information, transaction records, and technical information needed to take payment and prevent fraud. This website has no embedded payment form and does not receive your full card details.
+Where a product uses Stripe, Stripe hosts direct checkout and any billing portal. It processes the email address, billing and payment information, transaction records, and technical information needed to take payment and prevent fraud. This website has no embedded payment form and does not receive your full card details. Optional support payments processed through my Stripe account also create payment records; they are separate from app licenses.
 
 I can access customer and transaction records in Stripe to provide purchased access, locate orders, answer billing questions, handle refunds and disputes, prevent fraud, and meet accounting or legal obligations. Stripe also processes information for its own service and legal obligations. Its checkout and portal may use cookies; see [Stripe’s privacy policy](https://stripe.com/privacy).
 
 ## Product licensing and purchase delivery
 
-Licensing and delivery depend on the product. For Trayage’s direct edition, Stripe sends purchase and refund events to Keylight. Keylight associates the purchase email and order with a license and emails the key. A refund can change that license’s access. I can access customer licensing records and device activity in Keylight to manage purchased access and provide support.
+Licensing and delivery depend on the product. For Trayage’s direct edition, Stripe sends purchase and refund events to Keylight. Keylight associates the purchase email and order with a license and emails the key. A refund can change that license’s access. I can access customer licensing records to manage purchased access and provide support.
 
-Trayage also uses Keylight for licensing, trials, and device reporting before a purchase. Those records can include installation and device identifiers, the computer name, app and operating-system information, network addresses, and license or trial state. Its [app privacy policy](https://trayage.app/privacy/) explains those reports, their timing and purpose, and available controls. See also [Keylight’s privacy policy](https://keylight.dev/privacy/). These Trayage-specific arrangements are not a description of every RelayByte app.
+The [Trayage privacy policy](https://trayage.app/privacy/) explains its licensing, trial and device reporting, including reporting before a purchase. See also [Keylight’s privacy policy](https://keylight.dev/privacy/). That app-specific reporting is separate from visiting RelayByte and does not apply to every app.
 
 ## Purchases through Apple
 
-Apple processes App Store purchases under its own policies. Trayage’s App Store edition uses Apple’s purchase system instead of Stripe checkout and Keylight licensing. See [App Store & Privacy](https://www.apple.com/legal/privacy/data/en/app-store/) and the [Trayage privacy policy](https://trayage.app/privacy/) for that edition’s handling of purchases and access.
+Apple processes App Store purchases under its own policies; they do not pass through my Stripe checkout. See [App Store & Privacy](https://www.apple.com/legal/privacy/data/en/app-store/) and the relevant app’s policy for its handling of purchase access and any additional purchase service, such as RevenueCat in Trayage 1.1.
 
 ## Contacting me
+
+The blog has no public comments, visitor accounts, or email subscription form. Reading the RSS feed requires no signup with me; fetching it involves the same hosting requests described above. Links to app websites, stores, payment services, and other external sites are governed by those sites’ policies after you follow them.
 
 If you email [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}), I receive your email address, message, and anything you choose to attach. I use that information to answer your question, investigate a problem, locate a purchase, or handle your request. The support mailbox is hosted by Proton Mail; see [Proton Mail’s privacy policy](https://proton.me/mail/privacy-policy).
 

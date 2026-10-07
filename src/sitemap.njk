@@ -3,4 +3,4 @@ permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{% if site.publicUrl %}{% for item in collections.all %}<url><loc>{{ item.url | absoluteUrl(site.publicUrl) }}</loc></url>{% endfor %}{% endif %}</urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{% if site.publicUrl %}{% for item in collections.all %}{% if not item.data.draft %}<url><loc>{{ item.url | absoluteUrl(site.publicUrl) }}</loc></url>{% endif %}{% endfor %}{% endif %}</urlset>

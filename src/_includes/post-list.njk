@@ -1,0 +1,10 @@
+{% set postHeading = 'h2' if page.url == '/blog/' or categoryInfo else 'h3' %}
+{% for entry in postList or collections.blog %}
+<article class="journal-entry">
+  <div class="post-meta"><a class="eyebrow" href="{{ ('/blog/category/' + (entry.data.category | categorySlug) + '/') | url }}">{{ entry.data.category }}</a><time datetime="{{ entry.date | isoDate }}">{{ entry.date | postDate }}</time>{% if entry.data.draft %}<span class="draft-label">Draft preview</span>{% endif %}</div>
+  <{{ postHeading }}><a href="{{ entry.url | url }}">{{ entry.data.title }} <span aria-hidden="true">↗</span></a></{{ postHeading }}>
+  <p>{{ entry.data.description }}</p>
+</article>
+{% else %}
+<div class="journal-entry journal-empty"><span class="eyebrow">The next chapter</span><{{ postHeading }}>The first note is on its way.</{{ postHeading }}><p>This will be a home for the decisions, experiments, and lessons behind RelayByte. New posts will appear here and in the RSS feed.</p></div>
+{% endfor %}

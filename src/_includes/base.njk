@@ -9,8 +9,9 @@
   <meta name="description" content="{{ description or site.description }}">
   <meta property="og:title" content="{% if title %}{{ title }} — {% endif %}{{ site.name }}">
   <meta property="og:description" content="{{ description or site.description }}">
-  <meta property="og:type" content="website">
-  {% if site.publicUrl and page.url != '/404.html' %}
+  <meta property="og:type" content="{{ 'article' if post else 'website' }}">
+  <link rel="alternate" type="application/rss+xml" title="RelayByte Blog" href="{{ '/blog/feed.xml' | url }}">
+  {% if site.publicUrl and page.url != '/404.html' and not draft %}
   <link rel="canonical" href="{{ page.url | absoluteUrl(site.publicUrl) }}">
   <meta property="og:url" content="{{ page.url | absoluteUrl(site.publicUrl) }}">
   <meta property="og:image" content="{{ '/assets/brand/social-card.png' | absoluteUrl(site.publicUrl) }}">
@@ -30,7 +31,8 @@
   <header class="site-header shell">
     <a class="wordmark" href="{{ '/' | url }}" aria-label="RelayByte home"><img class="brand-symbol" src="{{ '/assets/brand/relaybyte-symbol-orange.svg' | url }}" alt="" width="48" height="48"><span>RelayByte</span></a>
     <nav aria-label="Main navigation">
-      <a href="{{ '/' | url }}#apps">The apps</a>
+      <a href="{{ '/apps/' | url }}"{% if page.url == '/apps/' %} aria-current="page"{% endif %}>The apps</a>
+      <a href="{{ '/blog/' | url }}"{% if page.url == '/blog/' or post %} aria-current="page"{% endif %}>Blog</a>
       <a href="{{ '/about/' | url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>The maker</a>
       <a href="{{ '/support/' | url }}"{% if page.url == '/support/' %} aria-current="page"{% endif %}>Get in touch <span aria-hidden="true">↗</span></a>
     </nav>
@@ -38,7 +40,7 @@
   <main id="main" tabindex="-1">{{ content | safe }}</main>
   <footer class="site-footer shell">
     <div class="footer-main"><a class="wordmark" href="{{ '/' | url }}" aria-label="RelayByte home"><img class="brand-symbol" src="{{ '/assets/brand/relaybyte-symbol-orange.svg' | url }}" alt="" width="48" height="48"><span>RelayByte</span></a><p>A small software studio.<br>A real person behind it.</p><a class="text-link" href="mailto:{{ site.helloEmail }}" data-tinylytics-event="contact.email">Say hello <span aria-hidden="true">↗</span></a></div>
-    <div class="footer-meta"><p>© 2026 Kyle Reddoch <span class="footer-separator">/</span> Made in Texas.</p><div class="footer-controls"><a href="{{ '/privacy/' | url }}"{% if page.url == '/privacy/' %} aria-current="page"{% endif %}>Privacy</a><a href="{{ '/terms/' | url }}"{% if page.url == '/terms/' %} aria-current="page"{% endif %}>Purchase terms</a><a href="{{ '/refunds/' | url }}"{% if page.url == '/refunds/' %} aria-current="page"{% endif %}>Refunds</a><label class="theme-control" hidden>Appearance <select id="theme-select" aria-label="Color theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></div></div>
+    <div class="footer-meta"><p>© 2026 Kyle Reddoch <span class="footer-separator">/</span> Made in Texas.</p><div class="footer-controls"><a href="{{ '/privacy/' | url }}"{% if page.url == '/privacy/' %} aria-current="page"{% endif %}>Privacy</a><a href="{{ '/terms/' | url }}"{% if page.url == '/terms/' %} aria-current="page"{% endif %}>Terms</a><a href="{{ '/refunds/' | url }}"{% if page.url == '/refunds/' %} aria-current="page"{% endif %}>Refunds</a><label class="theme-control" hidden>Appearance <select id="theme-select" aria-label="Color theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></div></div>
   </footer>
   <script src="https://tinylytics.app/embed/tMjBVztEBpTRNL7hmsgY.js?events&beacon" defer></script>
 </body>

@@ -8,7 +8,7 @@ permalink: /apps/styleport/
 ---
 <img class="detail-app-icon" src="{{ '/assets/apps/styleport.png' | url }}" width="104" height="104" alt="StylePort app icon">
 
-StylePort is a userstyle manager being prepared for Safari on macOS. Install, configure, edit, update, and apply custom CSS to websites, with your styles and settings kept locally.
+StylePort is a Safari-first, privacy-first CSS and UserCSS manager for Mac. It is free and open source, and still in development. Install, configure, edit, update, and apply custom CSS to websites, with your styles and settings kept locally.
 
 ## A more personal browser
 

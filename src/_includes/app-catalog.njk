@@ -1,0 +1,12 @@
+<div class="app-catalog">
+  {% set appHeading = 'h2' if page.url == '/apps/' else 'h3' %}
+  {% for app in apps %}
+  <article class="product-card product-card-{{ app.slug }}" aria-labelledby="app-{{ app.slug }}">
+    <div class="product-card-top"><img src="{{ app.icon | url }}" alt="" width="80" height="80"><span class="product-platform">{{ app.platform }}</span></div>
+    <div><{{ appHeading }} id="app-{{ app.slug }}">{{ app.name }}</{{ appHeading }}><p class="product-line">{{ app.line }}</p></div>
+    <p class="product-description">{{ app.description }}</p>
+    <div class="product-meta"><span class="product-status">{{ app.status }}</span><p>{{ app.note }}</p></div>
+    <div class="product-actions"><a class="text-link" href="{{ app.url }}" data-tinylytics-event="{{ app.event }}" data-tinylytics-event-value="{{ app.url }}">{{ app.action }} <span aria-hidden="true">↗</span></a><a class="product-detail-link" href="{{ ('/apps/' + app.slug + '/') | url }}">About {{ app.name }} <span aria-hidden="true">→</span></a></div>
+  </article>
+  {% endfor %}
+</div>

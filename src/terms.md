@@ -1,50 +1,51 @@
 ---
 layout: document.njk
-title: Purchase terms
-heading: Purchase terms.
-description: Shared terms for direct purchases from Kyle Reddoch under the RelayByte brand, with each app’s own license and purchase rules.
-eyebrow: Updated September 10, 2026
-intro: Each app has its own purchase terms. This page explains the shared purchasing and support arrangements behind RelayByte.
+title: Terms and payments
+heading: Terms and payments.
+description: RelayByte’s role in publishing apps, direct payments, optional support, and links to each product’s terms or open-source license.
+eyebrow: Updated October 7, 2026
+intro: The shared arrangements behind RelayByte, with the terms for each app kept in its own home.
 permalink: /terms/
 ---
-## Who you are buying from
+## Who is behind RelayByte
 
-RelayByte is the brand Kyle Reddoch uses to publish software. Kyle Reddoch, operating in Texas, United States, is the legal operator and seller for direct purchases. RelayByte is not a separate legal entity. For shared purchase or support questions, email [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}).
+RelayByte is the brand I use to publish software and share my work. I’m **Kyle Reddoch**, the legal operator and seller for direct purchases, based in Texas, United States. RelayByte is not a separate legal entity.
 
-## The terms for your app
+For shared purchase, payment, or support questions, email [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}).
 
-Before buying, read the product’s description, purchase terms, privacy policy, and refund policy. Those pages describe the edition, license, supported devices, delivery method, and features included in your purchase. Product-specific terms govern those details if they differ from this general page.
+## Terms for each app
 
-For Trayage, read the [Trayage purchase terms](https://trayage.app/terms/), [privacy policy](https://trayage.app/privacy/), and [refund policy](https://trayage.app/refunds/).
+An app’s own terms or open-source license describe the rights to use that app. Its product website and purchase offer explain the edition, features, supported devices, delivery, updates, and any payment requirements. Read those details before buying or installing.
 
-A purchase is for the product and edition identified when you order. It does not include other RelayByte apps or a license through a different store unless the product’s terms expressly say so. A roadmap or an app shown as in development is not a promise that it is available to buy.
+{% set policyKind = 'terms' %}
+{% include 'policy-directory.njk' %}
 
-## Prices, trials, and licenses
+A purchase applies to the app and edition identified when you order. It does not include another RelayByte app or access through a different store unless the product’s offer expressly says so. An app being listed here, or a feature appearing on a roadmap, does not mean it is available to buy.
 
-Review the product, currency, total price, and any applicable tax at checkout before paying. Use an email address you can access so you can receive purchase records and any license-delivery messages.
+## Direct payments and delivery
 
-Prices, trial periods, device limits, included updates, and upgrade terms are set separately for each product. No single price, license limit, trial length, or upgrade entitlement applies across RelayByte apps. Any recurring charge and its cancellation terms must be identified in that product’s offer before purchase.
+Where a product uses Stripe, checkout and any billing portal are hosted by Stripe. Review the app or support-payment purpose, currency, total, applicable tax, and any recurring-payment terms before paying. Use an email address you can access for receipts and delivery messages.
 
-Trayage’s direct offer is a one-time purchase, with no subscription or automatic renewal. Future major upgrades are optional purchases governed by the terms stated for that upgrade. See its purchase terms for the full offer.
+Prices, trials, device limits, included updates, and upgrade terms are specific to the app. There is no shared RelayByte license that automatically covers all products.
 
-## Payment and delivery
+For paid apps, the product’s terms explain how access is delivered and activated. If a receipt, license, or activation is missing, contact [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}) with the app name, payment email, and receipt reference. Do not send full card details or a complete license key.
 
-Stripe hosts direct checkout and the billing portal. Product-specific terms explain how paid access is delivered and activated. For Trayage’s direct edition, Keylight delivers the license by email after successful payment and manages activation.
+## Optional support payments
 
-If a receipt, license, or activation is missing, contact [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}) with the app name, purchase email, and receipt reference if available. Do not send a full payment card number or complete license key.
+A voluntary support payment is separate from an app purchase. Unless the checkout explicitly describes a product or entitlement, it does not buy a license, unlock features, or promise future work. Support is not a charitable donation. The provider and information shown before payment determine the payment arrangement; app-license refund terms do not automatically apply.
 
-## Refunds and billing questions
+## Store purchases and refunds
 
-Refund eligibility depends on the product, purchase type, and store used. The [RelayByte refund policy]({{ '/refunds/' | url }}) directs you to the applicable product policy and explains how to request help. A trial period is separate from any paid-purchase refund window.
+For purchases billed through a store, that store’s purchase rules and the applicable app license govern the transaction. Apple handles Apple-billed payments and refund decisions. A direct-purchase policy does not set Apple’s refund rules.
 
-## Purchases through Apple
+The [refunds and payment-help page]({{ '/refunds/' | url }}) directs you to each app’s policy and explains how to ask for help with a charge.
 
-Apple’s purchase terms and applicable app license govern purchases billed through the App Store. Apple handles billing and refund decisions; Kyle provides help with the app. A direct-purchase refund policy does not set Apple’s refund rules. Use [Apple’s Report a Problem service](https://reportaproblem.apple.com/) for an Apple-billed refund request.
+## This website and its writing
 
-## Privacy, your rights, and changes
+RelayByte’s app listings, blog, and roadmap discussions describe my work and plans. Blog posts are dated accounts of that work; a post is not a purchase offer, guarantee of a future feature, or amendment to an existing license. Look at the current product page and checkout for the offer available to you.
 
-The [RelayByte privacy policy]({{ '/privacy/' | url }}) covers this website and shared direct-purchase and support records. Each app’s privacy policy explains its own data handling.
+## Privacy, rights, and changes
 
-These terms and each product’s voluntary refund policy do not reduce rights or remedies that applicable law gives you and does not allow you to waive.
+The [RelayByte privacy policy]({{ '/privacy/' | url }}) covers this website and shared payment and support records. Each app’s privacy policy explains its own data handling.
 
-I may update this page for future purchases. Changes do not retroactively reduce rights or remove access included in an earlier purchase. The date above identifies the latest revision.
+These terms do not reduce rights or remedies that applicable law gives you and does not allow you to waive. Updates to this page do not retroactively reduce rights or remove access included in an earlier purchase. The date above identifies the latest revision.

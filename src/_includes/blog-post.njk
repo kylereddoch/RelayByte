@@ -1,0 +1,11 @@
+---
+layout: base.njk
+---
+<article class="document blog-article shell">
+  <a class="back-link" href="{{ '/blog/' | url }}">← Back to the blog</a>
+  <div class="post-meta"><a class="eyebrow" href="{{ ('/blog/category/' + (category | categorySlug) + '/') | url }}">{{ category }}</a><time datetime="{{ date | isoDate }}">{{ date | postDate }}</time>{% if draft %}<span class="draft-label">Draft preview</span>{% endif %}</div>
+  <h1>{{ title }}</h1><p class="document-intro">{{ description }}</p>
+  <p class="post-byline">By Kyle Reddoch · RelayByte</p>
+  <div class="prose">{{ content | safe }}</div>
+  <div class="post-footer"><p>Independent apps. A real person behind them.</p><a class="text-link" href="{{ '/apps/' | url }}">Explore the apps <span aria-hidden="true">→</span></a></div>
+</article>

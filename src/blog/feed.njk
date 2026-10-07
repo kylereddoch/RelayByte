@@ -1,0 +1,6 @@
+---
+permalink: /blog/feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>RelayByte Blog</title><link>{{ site.publicUrl }}blog/</link><description>Notes from Kyle Reddoch on building independent apps and RelayByte.</description><language>en-us</language>{% for entry in collections.blog %}{% if not entry.data.draft %}<item><title>{{ entry.data.title | escape }}</title><link>{{ entry.url | absoluteUrl(site.publicUrl) | escape }}</link><guid>{{ entry.url | absoluteUrl(site.publicUrl) | escape }}</guid><description>{{ entry.data.description | escape }}</description><pubDate>{{ entry.date.toUTCString() }}</pubDate></item>{% endif %}{% endfor %}</channel></rss>
