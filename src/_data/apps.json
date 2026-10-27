@@ -6,8 +6,8 @@
     "line": "A little order for your Downloads.",
     "description": "See the installers, possible duplicates, and older files that have accumulated on your Mac. Review what matters and decide what stays.",
     "platform": "macOS",
-    "status": "Direct download available",
-    "note": "Mac App Store version coming soon.",
+    "status": "Available for Mac",
+    "note": "Free file review. Optional 7-day cleanup trial. Direct download and Mac App Store.",
     "action": "Download Trayage",
     "url": "https://trayage.app/download/",
     "event": "app.download"

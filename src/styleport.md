@@ -1,5 +1,6 @@
 ---
 layout: document.njk
+description: StylePort is a Safari-first CSS and UserCSS manager for Mac. Free, open source, and in development.
 title: StylePort
 heading: Make the web feel like yours.
 eyebrow: StylePort / Safari on macOS / In development

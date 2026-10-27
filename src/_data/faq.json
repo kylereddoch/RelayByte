@@ -1,0 +1,6 @@
+[
+  {"question":"What is RelayByte?","answer":"RelayByte is the independent software brand of Kyle Reddoch, a developer in Texas. It is home to Trayage, StylePort, and Drift: focused apps for everyday tasks on your Mac and in your browser."},
+  {"question":"Which apps can I use today?","answer":"Trayage is available for macOS 14 or later, directly and on the Mac App Store. Drift is available for Chrome. StylePort is in development and does not yet have a public download."},
+  {"question":"Are RelayByte apps free?","answer":"Trayage offers free file review and an optional seven-day cleanup trial. Its direct cleanup license is US$9.99 once. Drift is free and open source. StylePort is being developed as a free, open-source app."},
+  {"question":"Who can I contact for help?","answer":"Kyle handles support directly. Email support@relaybyte.dev with the app name, your operating system, and a description of the issue. Each app also has its own privacy and support information."}
+]

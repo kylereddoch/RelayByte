@@ -40,7 +40,7 @@ test('npm start watches templates and copied assets; chosen URLs render correctl
     assert.fail(`Live rebuild did not complete. ${logs}`);
   }
   const text = async path => (await fetch(root + path)).text();
-  await eventually(async () => (await text('/')).includes('Small apps.'));
+  await eventually(async () => (await text('/')).includes('Good software.'));
   const about = await text('/about/');
   assert.match(about, /rel="canonical" href="https:\/\/example.test\/RelayByte\/about\/"/);
   assert.match(about, /property="og:image" content="https:\/\/example.test\/RelayByte\/assets\/brand\/social-card.png"/);
@@ -52,7 +52,7 @@ test('npm start watches templates and copied assets; chosen URLs render correctl
   const original = await readFile(aboutPath, 'utf8');
   await writeFile(aboutPath, original.replace('Hi, I’m Kyle.', 'Live rebuild verified.'));
   await eventually(async () => (await text('/about/')).includes('Live rebuild verified.'));
-  assert.equal((await fetch(root + '/assets/brand/favicon.svg')).status, 200);
+  await eventually(async () => (await fetch(root + '/assets/brand/favicon.svg')).status === 200);
   const cssPath = join(dir, 'src/assets/site.css');
   await writeFile(cssPath, (await readFile(cssPath, 'utf8')) + '\n/* live-asset-rebuild-verified */\n');
   await eventually(async () => (await text('/assets/site.css')).includes('live-asset-rebuild-verified'));

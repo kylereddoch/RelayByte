@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const routes = ['/', '/apps/', '/blog/', '/blog/building-relaybyte/', '/blog/category/journey/', '/about/', '/support/', '/privacy/', '/terms/', '/refunds/', '/apps/trayage/', '/apps/styleport/', '/apps/drift/', '/404.html'];
+const routes = ['/', '/apps/', '/blog/', '/blog/building-relaybyte/', '/blog/category/journey/', '/about/', '/support/', '/privacy/', '/terms/', '/refunds/', '/apps/trayage/', '/apps/styleport/', '/apps/drift/', '/404.html', '/film/'];
 
 test.beforeEach(async ({ page }) => {
   // Tinylytics only serves the embed to its configured production hostname.
@@ -180,4 +180,36 @@ test('logo card tilts, spins with pointer and keyboard, and stops for reduced mo
   await expect(quietCard).toHaveClass(/is-lit/);
   expect(await spinner.evaluate(el => el.getAnimations().length)).toBe(0);
   await expect(page).toHaveURL(home);
+});
+
+test('home has no video player; motion badge plays and seeks on its preview page', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('video')).toHaveCount(0);
+  await page.goto('/film/');
+  const video = page.locator('video');
+  await expect(video).toHaveAttribute('loop', '');
+  await expect(video).not.toHaveAttribute('autoplay', '');
+  expect(await video.evaluate(el => el.paused)).toBe(true);
+  const range = await page.request.get('/assets/media/relaybyte-film.mp4', { headers: { Range: 'bytes=0-1023' } });
+  expect(range.status()).toBe(206);
+  expect(range.headers()['content-type']).toBe('video/mp4');
+  expect((await range.body()).length).toBe(1024);
+  const suffix = await page.request.get('/assets/media/relaybyte-film.mp4', { headers: { Range: 'bytes=-128' } });
+  expect(suffix.status()).toBe(206);
+  expect((await suffix.body()).length).toBe(128);
+  expect((await page.request.get('/assets/media/relaybyte-film.mp4', { headers: { Range: 'bytes=999999999-' } })).status()).toBe(416);
+  await page.goto('/film/');
+  await video.evaluate(el => el.load());
+  await expect.poll(() => video.evaluate(el => el.readyState)).toBeGreaterThan(0);
+  expect(await video.evaluate(el => el.duration)).toBeCloseTo(12, 1);
+  expect(await video.evaluate(el => [el.videoWidth, el.videoHeight])).toEqual([1920, 1080]);
+  await video.evaluate(el => { el.currentTime = 5; });
+  await expect.poll(() => video.evaluate(el => el.currentTime)).toBeCloseTo(5, 1);
+  await video.evaluate(async el => { el.muted = true; await el.play(); });
+  await expect.poll(() => video.evaluate(el => el.currentTime)).toBeGreaterThan(5.1);
+  await video.evaluate(el => el.pause());
+  await expect(page.getByRole('heading', { name: 'Video description' })).toBeVisible();
+  await page.goto('/');
+  await page.locator('summary').filter({ hasText: 'Which apps can I use today?' }).click();
+  await expect(page.locator('details[open]')).toContainText('StylePort is in development');
 });

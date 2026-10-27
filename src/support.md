@@ -1,6 +1,7 @@
 ---
 layout: document.njk
 title: Support
+description: Get help with RelayByte apps. Contact Kyle Reddoch for Trayage, StylePort, and Drift support, bug reports, and product questions.
 heading: Let’s figure it out.
 eyebrow: Get in touch
 intro: A question about an app goes straight to the person building it.

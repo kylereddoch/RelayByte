@@ -1,8 +1,9 @@
 ---
 layout: document.njk
 title: Trayage
+description: Review your Mac’s Downloads folder with Trayage. Free file review, an optional seven-day cleanup trial, and a one-time unlock.
 heading: A little order for your Downloads.
-eyebrow: Trayage / macOS / Direct download available
+eyebrow: Trayage / macOS / Available
 intro: See what’s accumulated, review what matters, and decide what stays.
 permalink: /apps/trayage/
 ---
@@ -16,16 +17,16 @@ Possible duplicates are suggestions based on matching filenames and file sizes, 
 
 Trayage moves selected files to the Trash only after you confirm. It does not automatically delete your files or empty the Trash.
 
-## One purchase. Your version to keep.
+## Free to review. Buy once for cleanup.
 
-Start with a free **seven-day trial**. The direct license price is **$29.99**, with new license purchases still being finalized. Existing licenses can be activated now. A direct license covers up to three Macs. Updates within version 1 are included. You can keep using the version you purchased on compatible systems.
+File review is free. Try cleanup with an optional **seven-day trial**, with no automatic charge. The direct license is **US$9.99 once**, covers up to three active Macs, and includes version 1.x updates.
 
-Future major upgrades will be optional paid purchases, with a discount planned for existing customers. An upgrade price and release date have not been set. App Store purchase and trial details will be shown in Apple’s listing when it is available.
+Future major upgrades are optional paid purchases. You can keep using the version you purchased on compatible systems.
 
-## Available directly for Mac
+## Two ways to get Trayage
 
-Trayage is available to download directly for macOS 14 or later. The Mac App Store version is coming later.
+Trayage is available directly and on the Mac App Store for macOS 14 or later. The App Store offers a separate one-time in-app unlock; Apple shows your local price. Direct licenses and App Store purchases are separate.
 
-[Download Trayage and start your trial]({{ site.trayageUrl }}/download/). For questions, [get in touch]({{ '/support/' | url }}).
+[Download Trayage and explore your options]({{ site.trayageUrl }}/download/). For questions, [get in touch]({{ '/support/' | url }}).
 
-{% if site.trayageUrl %}[Visit the Trayage website]({{ site.trayageUrl }}){% endif %}
+[Visit the Trayage website]({{ site.trayageUrl }}) for current pricing, release details, and requirements.

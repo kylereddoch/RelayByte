@@ -18,7 +18,7 @@ for (const [output, prefix] of [['dist','/'],['dist-pages','/RelayByte/']]) {
   test(`${output}: pages and local links resolve under ${prefix}`, async () => {
     const root = resolve(output);
     const pages = await htmlFiles(root);
-    assert.equal(pages.length, 14);
+    assert.equal(pages.length, 15);
     await stat(join(root, '.nojekyll'));
     assert.equal((await readFile(join(root, 'CNAME'), 'utf8')).trim(), 'relaybyte.dev');
     for (const page of pages) {
@@ -55,13 +55,13 @@ for (const [output, prefix] of [['dist','/'],['dist-pages','/RelayByte/']]) {
 
 test('product claims and identity stay consistent', async () => {
   const trayage = await readFile('dist/apps/trayage/index.html', 'utf8');
-  assert.match(trayage, /\$29\.99/);
+  assert.match(trayage, /US\$9\.99/);
   assert.match(trayage, /seven-day trial/);
   assert.match(trayage, /optional paid purchases/);
   assert.match(trayage, /Kyle Reddoch/);
-  assert.doesNotMatch(trayage, /buy\.stripe\.com|apps\.apple\.com/);
+  assert.doesNotMatch(trayage, /buy\.stripe\.com/);
   const home = await readFile('dist/index.html','utf8');
-  assert.match(home, /Direct download available/);
+  assert.match(home, /Available now/);
   assert.match(home, /Get Drift for Chrome/);
   assert.match(home, /The work behind/);
   assert.doesNotMatch(home, /noindex, nofollow/);

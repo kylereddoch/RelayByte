@@ -15,7 +15,8 @@
     "test": "npm run build && npm run build:pages && node --test --test-concurrency=1 tests/*.test.mjs && npm run test:browser",
     "check": "npm test",
     "brand:export": "node scripts/export-brand.mjs",
-    "test:browser": "playwright test"
+    "test:browser": "playwright test",
+    "film:render": "mkdir -p output/film && swiftc scripts/film/render.swift -o output/film/render && output/film/render"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6",

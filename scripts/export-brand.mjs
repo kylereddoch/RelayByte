@@ -52,8 +52,7 @@ header.writeUInt16LE(1, 10); header.writeUInt16LE(32, 12);
 header.writeUInt32LE(faviconData.length, 14); header.writeUInt32LE(22, 18);
 await writeFile(`${out}/favicon.ico`, Buffer.concat([header, faviconData]));
 
-const social = svg(1200, 630, `<rect width="1200" height="630" fill="${palette.ink}"/>` + mark(53, 30, 420, palette.orange) + `<g transform="translate(492 282)" fill="${palette.paper}">${letters}</g><text x="130" y="521" font-family="sans-serif" font-size="28" fill="${palette.paper}">Independent apps by Kyle Reddoch.</text>`);
-await png('social-card', social, 1200);
+// Preserve the authored social-card.png; identity exports do not overwrite campaign artwork.
 for (const name of ['stripe-icon-512', 'relaybyte-lockup-ink', 'relaybyte-lockup-paper']) {
   const file = `${out}/${name}.png`;
   const { width, height } = await sharp(file).metadata();
