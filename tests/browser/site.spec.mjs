@@ -12,27 +12,26 @@ test.beforeEach(async ({ page }) => {
 });
 
 for (const theme of ['light', 'dark']) {
-  test(`${theme}: all pages render, fit the screen, and pass axe WCAG AA`, async ({ page }, testInfo) => {
-    // This test runs a complete accessibility audit for every route. Linux WebKit
-    // needs more than the single-page default budget for the full collection.
-    test.setTimeout(90_000);
-    await page.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' });
-    const errors = [];
-    page.on('pageerror', e => errors.push(e.message));
-    page.on('console', msg => { if (msg.type() === 'error') errors.push(msg.text()); });
-    for (const route of routes) {
-      expect((await page.goto(route)).status()).toBe(200);
+  // Give each page its own fixture and timeout, so adding a route cannot exhaust
+  // a shared full-site budget or obscure which page failed on a slower runner.
+  for (const route of routes) {
+    test(`${theme}: ${route} renders, fits the screen, and passes axe WCAG AA`, async ({ page }, testInfo) => {
+      await page.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' });
+      const errors = [];
+      page.on('pageerror', e => errors.push(e.message));
+      page.on('console', msg => { if (msg.type() === 'error') errors.push(msg.text()); });
+      expect((await page.goto(route, { waitUntil: 'domcontentloaded' })).status()).toBe(200);
       await page.evaluate(() => document.fonts.ready);
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('nav a')).toHaveCount(4);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-      expect(await page.locator('img').evaluateAll(imgs => imgs.every(i => i.complete && i.naturalWidth > 0))).toBe(true);
+      await expect.poll(() => page.locator('img').evaluateAll(imgs => imgs.every(i => i.complete && i.naturalWidth > 0))).toBe(true);
       const audit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();
       expect(audit.violations.map(v => ({ rule: v.id, nodes: v.nodes.map(n => ({ target: n.target, reason: n.failureSummary })) })), route).toEqual([]);
       if (['/', '/terms/', '/refunds/', '/privacy/'].includes(route)) await page.screenshot({ path: `docs/qa/${testInfo.project.name}-${theme}${route === '/' ? '' : `-${route.split('/')[1]}`}.png`, fullPage: true });
-    }
-    expect(errors).toEqual([]);
-  });
+      expect(errors).toEqual([]);
+    });
+  }
 }
 
 test('theme preference persists, System clears storage and follows OS changes', async ({ page }) => {
