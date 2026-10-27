@@ -13,6 +13,9 @@ test.beforeEach(async ({ page }) => {
 
 for (const theme of ['light', 'dark']) {
   test(`${theme}: all pages render, fit the screen, and pass axe WCAG AA`, async ({ page }, testInfo) => {
+    // This test runs a complete accessibility audit for every route. Linux WebKit
+    // needs more than the single-page default budget for the full collection.
+    test.setTimeout(90_000);
     await page.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' });
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
