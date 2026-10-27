@@ -16,6 +16,12 @@ With Trayage, that means helping you review the files in Downloads and leaving t
 
 These are independent projects. I’m building them carefully, listening to feedback, and giving each one time to become useful. Upcoming features are possibilities, not promises attached to a purchase.
 
+## RelayByte at a glance
+
+A short overview of the studio, its apps, and where it’s heading
+
+[View the RelayByte deck (PDF)]({{ '/assets/decks/relaybyte-overview.pdf' | url }})
+
 ## A real person to reach
 
 Have a question, a bug report, or an idea? Write to [{{ site.supportEmail }}](mailto:{{ site.supportEmail }}).
