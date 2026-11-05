@@ -10,7 +10,8 @@
     "note": "Free file review. Optional 7-day cleanup trial. Direct download and Mac App Store.",
     "action": "Download Trayage",
     "url": "https://trayage.app/download/",
-    "event": "app.download"
+    "event": "app.download",
+    "appStoreUrl": "https://apps.apple.com/us/app/trayage/id6810382134"
   },
   {
     "name": "StylePort",
@@ -19,11 +20,15 @@
     "line": "Your browser, your style.",
     "description": "A Safari-first, privacy-first CSS and UserCSS manager for Mac. Install, edit, and manage custom styles, with your settings kept locally.",
     "platform": "Safari on macOS",
-    "status": "In development",
-    "note": "Free and open source. Public downloads are not available yet.",
-    "action": "Explore StylePort",
-    "url": "https://styleport.app",
-    "event": "link.outbound"
+    "status": "Available now",
+    "note": "Free and open source. Direct download and Mac App Store for macOS 14+.",
+    "action": "Download StylePort",
+    "url": "https://apps.apple.com/us/app/styleport/id6820215457",
+    "event": "app.download",
+    "operatingSystem": "macOS 14 or later",
+    "downloadUrl": "https://apps.apple.com/us/app/styleport/id6820215457",
+    "appStoreUrl": "https://apps.apple.com/us/app/styleport/id6820215457",
+    "directDownloadUrl": "https://styleport.app/#download"
   },
   {
     "name": "Drift",

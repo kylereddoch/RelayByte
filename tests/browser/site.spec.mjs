@@ -28,7 +28,7 @@ for (const theme of ['light', 'dark']) {
       await expect.poll(() => page.locator('img').evaluateAll(imgs => imgs.every(i => i.complete && i.naturalWidth > 0))).toBe(true);
       const audit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();
       expect(audit.violations.map(v => ({ rule: v.id, nodes: v.nodes.map(n => ({ target: n.target, reason: n.failureSummary })) })), route).toEqual([]);
-      if (['/', '/terms/', '/refunds/', '/privacy/'].includes(route)) await page.screenshot({ path: `docs/qa/${testInfo.project.name}-${theme}${route === '/' ? '' : `-${route.split('/')[1]}`}.png`, fullPage: true });
+      if (['/', '/about/', '/terms/', '/refunds/', '/privacy/'].includes(route)) await page.screenshot({ path: `docs/qa/${testInfo.project.name}-${theme}${route === '/' ? '' : `-${route.split('/')[1]}`}.png`, fullPage: true });
       expect(errors).toEqual([]);
     });
   }
@@ -93,7 +93,7 @@ test('keyboard skip, navigation, app links, and reduced motion', async ({ page, 
   await page.getByRole('link', { name: 'Meet the apps' }).click();
   await expect(page).toHaveURL(/#apps$/);
   await expect(page.getByRole('link', { name: 'Download Trayage' })).toHaveAttribute('href', 'https://trayage.app/download/');
-  await expect(page.getByRole('link', { name: 'Explore StylePort' })).toHaveAttribute('href', 'https://styleport.app');
+  await expect(page.getByRole('link', { name: 'Download StylePort' })).toHaveAttribute('href', 'https://apps.apple.com/us/app/styleport/id6820215457');
 });
 
 test('320px reflow, tablet width, no-JavaScript content, and missing pages', async ({ browser, page }) => {
@@ -130,7 +130,7 @@ test('GitHub Pages subpath: navigation, assets, and deep 404 recovery', async ({
   await expect(page).toHaveURL('http://127.0.0.1:4186/RelayByte/about/');
   await page.getByRole('link', { name: 'RelayByte home' }).first().click();
   await expect(page.getByRole('link', { name: 'Download Trayage' })).toHaveAttribute('href', 'https://trayage.app/download/');
-  await expect(page.getByRole('link', { name: 'Explore StylePort' })).toHaveAttribute('href', 'https://styleport.app');
+  await expect(page.getByRole('link', { name: 'Download StylePort' })).toHaveAttribute('href', 'https://apps.apple.com/us/app/styleport/id6820215457');
   await page.goto('http://127.0.0.1:4186/RelayByte/apps/trayage/');
   await expect(page.getByRole('link', { name: 'Visit the Trayage website' })).toHaveAttribute('href', 'https://trayage.app');
   for (const [label, path] of [['Terms', 'terms'], ['Refunds', 'refunds'], ['Privacy', 'privacy']]) {
@@ -213,5 +213,5 @@ test('home has no video player; motion badge plays and seeks on its preview page
   await expect(page.getByRole('heading', { name: 'Video description' })).toBeVisible();
   await page.goto('/');
   await page.locator('summary').filter({ hasText: 'Which apps can I use today?' }).click();
-  await expect(page.locator('details[open]')).toContainText('StylePort is in development');
+  await expect(page.locator('details[open]')).toContainText('StylePort is available for Safari');
 });

@@ -63,6 +63,13 @@ test('product claims and identity stay consistent', async () => {
   const home = await readFile('dist/index.html','utf8');
   assert.match(home, /Available now/);
   assert.match(home, /Get Drift for Chrome/);
+  const styleport = await readFile('dist/apps/styleport/index.html', 'utf8');
+  assert.match(styleport, /Download StylePort/);
+  assert.match(styleport, /https:\/\/apps\.apple\.com\/us\/app\/styleport\/id6820215457/);
+  assert.match(styleport, /Both include every feature for free/);
+  for (const html of [home, styleport, await readFile('dist/apps/index.html', 'utf8'), await readFile('dist/support/index.html', 'utf8')]) {
+    assert.doesNotMatch(html, /in development|downloads are not available|does not yet have a public download|Mac App Store edition is coming soon/i);
+  }
   assert.match(home, /The work behind/);
   assert.doesNotMatch(home, /noindex, nofollow/);
   assert.match(home, /rel="canonical" href="https:\/\/relaybyte\.dev\/"/);

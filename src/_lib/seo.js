@@ -18,9 +18,9 @@ export function buildSeo(data) {
   const app = data.apps?.find(app => page.url === `/apps/${app.slug}/`);
   if (app) {
     const product = { '@type': 'SoftwareApplication', '@id': `${canonical}#app`, name: app.name, description: app.description,
-      url: canonical, image: url(app.icon), applicationCategory: 'UtilitiesApplication', operatingSystem: app.slug === 'trayage' ? 'macOS 14 or later' : app.platform,
+      url: canonical, image: url(app.icon), applicationCategory: 'UtilitiesApplication', operatingSystem: app.operatingSystem || (app.slug === 'trayage' ? 'macOS 14 or later' : app.platform),
       author: { '@id': person['@id'] }, mainEntityOfPage: { '@id': webPage['@id'] } };
-    if (app.slug !== 'styleport') product.downloadUrl = app.url;
+    product.downloadUrl = app.downloadUrl || app.url;
     graph.push(product); webPage.mainEntity = { '@id': product['@id'] };
   }
   if (page.url === '/apps/') graph.push({ '@type': 'ItemList', itemListElement: data.apps.map((app, index) => ({ '@type': 'ListItem', position: index + 1, name: app.name, url: url(`/apps/${app.slug}/`) })) });

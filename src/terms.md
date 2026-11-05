@@ -3,7 +3,7 @@ layout: document.njk
 title: Terms and payments
 heading: Terms and payments.
 description: RelayByte’s role in publishing apps, direct payments, optional support, and links to each product’s terms or open-source license.
-eyebrow: Updated October 7, 2026
+eyebrow: Updated November 5, 2026
 intro: The shared arrangements behind RelayByte, with the terms for each app kept in its own home.
 permalink: /terms/
 ---

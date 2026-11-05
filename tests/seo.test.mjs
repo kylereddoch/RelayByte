@@ -18,8 +18,10 @@ test('canonical metadata, structured entities, and visible answers agree', async
   const app = graph(await read('apps/trayage/index.html')).find(n => n['@type'] === 'SoftwareApplication');
   assert.equal(app.operatingSystem, 'macOS 14 or later');
   assert.ok(!app.aggregateRating);
-  const pending = graph(await read('apps/styleport/index.html')).find(n => n['@type'] === 'SoftwareApplication');
-  assert.ok(!pending.downloadUrl && !pending.offers);
+  const styleport = graph(await read('apps/styleport/index.html')).find(n => n['@type'] === 'SoftwareApplication');
+  assert.equal(styleport.downloadUrl, 'https://apps.apple.com/us/app/styleport/id6820215457');
+  assert.equal(styleport.operatingSystem, 'macOS 14 or later');
+  assert.ok(!styleport.offers);
   const blog = graph(await read('blog/building-relaybyte/index.html')).find(n => n['@type'] === 'BlogPosting');
   assert.ok(blog.datePublished);
   assert.doesNotMatch(await read('404.html'), /application\/ld\+json|rel="canonical"/);

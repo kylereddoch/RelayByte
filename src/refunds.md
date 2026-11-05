@@ -3,7 +3,7 @@ layout: document.njk
 title: Refunds and payment help
 heading: Refunds and payment help.
 description: Find the refund policy for your app and get help with a payment made under the RelayByte brand.
-eyebrow: Updated October 7, 2026
+eyebrow: Updated November 5, 2026
 intro: Start with the app and the service that took your payment. This page helps you find the right policy and contact.
 permalink: /refunds/
 ---

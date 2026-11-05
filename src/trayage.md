@@ -13,7 +13,9 @@ Trayage helps you review your Mac’s Downloads folder. It brings installers, po
 
 ## You make the call
 
-Possible duplicates are suggestions based on matching filenames and file sizes, not a claim that file contents are identical. Review files before removing them.
+Possible duplicates start as suggestions based on matching filenames and file sizes. Optional local content checks can compare those candidates; they do not find every duplicate on your Mac. Review files before removing them.
+
+Use 14 Smart Filter presets or save your own conditions for file type, extension, name, size, dates, Finder tags, and recorded source website. Hide suggestions you want to keep, and choose a compact menu-bar view or a fuller review.
 
 Trayage moves selected files to the Trash only after you confirm. It does not automatically delete your files or empty the Trash.
 
@@ -25,7 +27,7 @@ Future major upgrades are optional paid purchases. You can keep using the versio
 
 ## Two ways to get Trayage
 
-Trayage is available directly and on the Mac App Store for macOS 14 or later. The App Store offers a separate one-time in-app unlock; Apple shows your local price. Direct licenses and App Store purchases are separate.
+Trayage is available directly and on the Mac App Store for macOS 14 or later. The [Mac App Store](https://apps.apple.com/us/app/trayage/id6810382134) offers a separate one-time in-app unlock; Apple shows your local price. Direct licenses and App Store purchases are separate.
 
 [Download Trayage and explore your options]({{ site.trayageUrl }}/download/). For questions, [get in touch]({{ '/support/' | url }}).
 

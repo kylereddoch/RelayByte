@@ -1,5 +1,5 @@
 ---
-layout: document.njk
+layout: about.njk
 description: Meet Kyle Reddoch, the independent developer in Texas behind RelayByte, Trayage, StylePort, and Drift.
 title: The maker
 heading: Hi, I’m Kyle.

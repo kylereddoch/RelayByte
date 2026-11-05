@@ -3,7 +3,7 @@ layout: document.njk
 title: Privacy
 heading: Privacy.
 description: How Kyle Reddoch handles RelayByte website and blog visits, shared payment records, and email, with links to each app’s own privacy policy.
-eyebrow: Updated October 7, 2026
+eyebrow: Updated November 5, 2026
 intro: Privacy for this website, shared payments, and support. App-specific data handling is explained on each app’s website.
 permalink: /privacy/
 ---
@@ -24,7 +24,9 @@ These app policies explain their own app and website behavior. Visiting RelayByt
 
 GitHub Pages hosts this website. GitHub processes connection and request information, including your IP address, to serve and protect the site. See [GitHub’s privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 
-I use Tinylytics to count page views and selected link clicks so I can understand which pages, app downloads, and external resources visitors use. Tinylytics receives the page URL and path, referrer when the browser provides one, and browser user-agent information. A visitor’s IP address is used briefly to create rotating, one-way daily hashes and identify the country, then discarded rather than stored with the visit. Link-click events record a descriptive event name and, for outbound links, the destination URL.
+I use Tinylytics to count page views and selected link clicks so I can understand which pages, app downloads, and external resources visitors use. Tinylytics receives the page URL and path, referrer when the browser provides one, and browser user-agent information. Link-click events record a descriptive event name and, for outbound links, the destination URL.
+
+Tinylytics uses IP addresses to create rotating one-way hashes, identify the country, check network type, and apply ignored-address settings. It holds addresses in its processing queue for up to 12 hours and does not store them with visits. Its proxy access logs retain IP addresses for a short window of recent requests. These details are described in [Tinylytics’ visitor-data explanation](https://tinylytics.app/docs/trust/privacy).
 
 Tinylytics does not use tracking cookies or persistent cross-site identifiers. Its analytics service is hosted in Germany, and its script is delivered through Cloudflare. See [Tinylytics’ visitor-data explanation](https://tinylytics.app/docs/trust/privacy) and [privacy policy](https://tinylytics.app/docs/privacy). I have not added advertising trackers, embedded social feeds, or a visitor account system.
 
@@ -44,7 +46,7 @@ The [Trayage privacy policy](https://trayage.app/privacy/) explains its licensin
 
 ## Purchases through Apple
 
-Apple processes App Store purchases under its own policies; they do not pass through my Stripe checkout. See [App Store & Privacy](https://www.apple.com/legal/privacy/data/en/app-store/) and the relevant app’s policy for its handling of purchase access and any additional purchase service, such as RevenueCat in Trayage 1.1.
+Apple processes App Store purchases under its own policies; they do not pass through my Stripe checkout. See [App Store & Privacy](https://www.apple.com/legal/privacy/data/en/app-store/) and the relevant app’s policy for its handling of purchase access and any additional purchase service, such as RevenueCat for Trayage purchases and StylePort’s optional in-app tips.
 
 ## Contacting me
 

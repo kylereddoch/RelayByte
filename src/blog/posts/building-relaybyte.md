@@ -6,6 +6,8 @@ slug: building-relaybyte
 category: Journey
 draft: false
 ---
+**Update, November 5, 2026:** [StylePort is now available]({{ '/apps/styleport/' | url }}) directly and on the Mac App Store, with every styling feature free. The original post below reflects the studio when I wrote it.
+
 I shipped my first native Mac app recently. I’m still getting used to that sentence.
 
 I’ve built tools and side projects for years, but releasing [Trayage]({{ '/apps/trayage/' | url }}) under my own name felt different. There was an app someone could download, a website explaining it, and a way to reach me if something went wrong. All the work around it suddenly mattered just as much as getting the app itself to run.

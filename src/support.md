@@ -7,7 +7,7 @@ eyebrow: Get in touch
 intro: A question about an app goes straight to the person building it.
 permalink: /support/
 ---
-Email **[{{ site.supportEmail }}](mailto:{{ site.supportEmail }})**. Include the app’s name, your macOS version, the app version, and what happened. A few steps to reproduce a problem are especially helpful.
+Email **[{{ site.supportEmail }}](mailto:{{ site.supportEmail }})**. Include the app’s name and version, your operating system and browser where relevant, and what happened. A few steps to reproduce a problem are especially helpful.
 
 Please leave passwords, license keys, payment card details, and private files out of your message. If I need more information, I’ll explain what would help.
 
@@ -19,7 +19,11 @@ You can also email me with the app name, purchase email, and receipt reference i
 
 ## StylePort
 
-StylePort’s macOS Safari release is in development. For style issues, include the website address and a short description of the behavior you expected. Share custom CSS only if it contains no private information.
+StylePort is available for Safari on macOS 14 or later directly and on the Mac App Store. For installation help, visit [StylePort support](https://styleport.app/support/). For style issues, include the website address and a short description of the behavior you expected. Share custom CSS only if it contains no private information.
+
+## Drift
+
+For setup, sharing, or Mastodon server questions, start with [Drift’s help section](https://drift.kylereddoch.me/#help). Include your Chrome version, the website you were sharing, and the behavior you expected. Leave private draft text and account details out of your report.
 
 ## Purchase information
 
